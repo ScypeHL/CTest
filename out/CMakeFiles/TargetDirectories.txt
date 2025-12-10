@@ -1,0 +1,3 @@
+/home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles/nvimSDL3.dir
+/home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles/edit_cache.dir
+/home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles/rebuild_cache.dir
