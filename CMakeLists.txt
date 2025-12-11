@@ -26,10 +26,10 @@ add_executable(nvimSDL3
 	Source/main.c
 	Source/game.c
 	Source/init.c
-	Source/button.c
+	Source/utils.c
 	Header/game.h
 	Header/init.h
-	Header/button.h
+	Header/utils.h
 )
 
 target_compile_definitions(nvimSDL3 PRIVATE SDL_MAIN_USE_CALLBACKS)

@@ -13,31 +13,47 @@ bool InitGame(struct Game *game)
     return APP_CONTINUE;
 }
 
+bool InitGrid(Vector2 *coor)
+{
+    int level = 0;
+    for(int i = 0; i < 15; i = i + 3)
+	{
+		for (int l = 0; l < 3; l++)
+		{
+		    coor[i + l % 3].x = 75 + 175 * l % 3;
+		}
+		coor[i - 2].y = 60 + 60 * level * 3;
+		coor[i - 1].y = 60 + 60 * level * 3;
+		coor[i].y = 60 + 60 * level;
+		level++;
+	}
+}
+
 bool InitAssets(struct Game *game)
 {
-    game->surface = SDL_LoadBMP("Assets/bkg.bmp");
-	if(!game->surface){SDL_Log("Could not find background image - %s: ", SDL_GetError()); return APP_FAILURE;}
-    game->bkg.rect.w = game->surface->w; game->bkg.rect.h = game->surface->h;
-
-	game->bkg.texture = SDL_CreateTextureFromSurface(game->renderer, game->surface);
-	if (!game->bkg.texture) {SDL_Log("Could not apply background image to texture - %s: ", SDL_GetError()); return APP_FAILURE;}
-
-	if(!InitApply(game->button4, "Assets/4button.bmp", game->surface, game->renderer)){return APP_FAILURE;}
-    game->button4.rect.x=100; game->button4.rect.y=300;
+    Vector2 starting = {.x = 0 ,.y = 0};
+    if(!InitApply(&game->bkg, "Assets/bkg.bmp", game->surface, game->renderer, starting)){return APP_FAILURE;}
 	
+	char buf[256];
+	for (int i = 0; i <= 9; i = i + 1)
+	{
+		snprintf(buf, sizeof(buf),"Assets/%dbutton.bmp", i);
+	    char* sampleAdress = buf; 
+		if(!InitApply(&game->buttons[i], sampleAdress, game->surface, game->renderer, game->coor[i])){return APP_FAILURE;}
+	}
+    SDL_DestroySurface(game->surface);
 	return APP_CONTINUE;
 }
 
-bool InitApply(Entity entity, char* imageAdress, SDL_Surface *surface, SDL_Renderer *renderer)
+bool InitApply(Entity *entity, char* imageAdress, SDL_Surface *surface, SDL_Renderer *renderer, Vector2 pos)
 {
     surface = SDL_LoadBMP(imageAdress);
-	if(!surface){SDL_Log("Could not find bmp image of %s - %s: ",entity.name ,SDL_GetError()); return APP_FAILURE;}
-    entity.rect.w = surface->w; entity.rect.h = surface->h;
+	if(!surface){SDL_Log("Could not find bmp image of %s - %s: ",entity->name ,SDL_GetError()); return APP_FAILURE;}
+    entity->rect.w = surface->w; entity->rect.h = surface->h;
+	entity->rect.x = pos.x; entity->rect.y = pos.y;
 	
-	entity.texture = SDL_CreateTextureFromSurface(renderer, surface);
-    if (!entity.texture) {SDL_Log("Could not apply %s image to texture - %s: ",entity.name, SDL_GetError()); return APP_FAILURE;}
+	entity->texture = SDL_CreateTextureFromSurface(renderer, surface);
+    if (!entity->texture) {SDL_Log("Could not apply %s image to texture - %s: ",entity->name, SDL_GetError()); return APP_FAILURE;}
 
 	return APP_CONTINUE;
 }
-
-

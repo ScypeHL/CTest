@@ -1,12 +1,14 @@
 #include "../Header/game.h"
 #include "../Header/init.h"
-#include "../Header/button.h"
+#include "../Header/utils.h"
 
 bool GameCreate(struct Game **game)
 {
 	*game = calloc(1, sizeof(struct Game));
 	if (*game == NULL) {SDL_Log("Could not allocate game %s: ", SDL_GetError()); return APP_FAILURE;}
-   
+
+	struct Game *_game = *game;
+    InitGrid(_game->coor);
     if (!InitGame(*game)) {SDL_Log("Could not initialize game %s: ", SDL_GetError()); return APP_FAILURE;}
 	if (!InitAssets(*game)) {SDL_Log("Could not initialize assets %s: ", SDL_GetError()); return APP_FAILURE;}
 
@@ -16,14 +18,11 @@ bool GameCreate(struct Game **game)
 void GameRender(struct Game *game)
 {
     SDL_RenderClear(game->renderer);
-    SDL_RenderTexture(game->renderer, game->bkg.texture, NULL, &game->bkg.rect);
 
-	SDL_RenderTexture(game->renderer, game->button1.texture, NULL, &game->button1.rect);
-    SDL_RenderTexture(game->renderer, game->button2.texture, NULL, &game->button2.rect);
-    SDL_RenderTexture(game->renderer, game->button3.texture, NULL, &game->button3.rect);
-	SDL_RenderTexture(game->renderer, game->button4.texture, NULL, &game->button4.rect);
-	printf("Button 4 rect: %f, %f\n", game->button4.rect.x, game->button4.rect.w);
-    SDL_RenderPresent(game->renderer);	
+	GameRT(game->renderer, &game->bkg);	
+	for (int i = 0; i < BUTTON_COUNT; i++) {GameRT(game->renderer, &game->buttons[i]);}
+    
+	SDL_RenderPresent(game->renderer);	
 }
 
 void GameEvent(struct Game *game)
@@ -77,6 +76,11 @@ void GameFlow(struct Game *game)
 		GameEvent(game);
 		SDL_Delay(100);
 	}
+}
+
+void GameRT(SDL_Renderer *renderer, Entity *entity)
+{
+    SDL_RenderTexture(renderer, entity->texture, NULL, &entity->rect);
 }
 
 void GameCleanup(struct Game *game)
