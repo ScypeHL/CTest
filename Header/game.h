@@ -28,7 +28,7 @@ typedef struct
 
 typedef struct
 {
-    char* name;
+    int id;
     SDL_Texture *texture;
 	SDL_FRect rect;
 }Entity;
