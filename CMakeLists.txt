@@ -22,6 +22,14 @@ else()
 	message(STATUS "Using local SDL3")
 endif()
 
+find_package(SDL3_ttf QUIET)
+if (NOT SDL3_ttf_FOUND)
+    message(STATUS "Cloning SDL3_TTF git from GitHub")
+	include_dependency(SDL3_ttf https://github.com/libsdl-org/SDL_ttf.git release-3.2.2)
+else()
+	message(STATUS "Using local SDL3_ttf")
+endif()
+
 add_executable(nvimSDL3
 	Source/main.c
 	Source/game.c

@@ -1,6 +1,5 @@
 #include "../Header/game.h"
 #include "../Header/init.h"
-#include "../Header/utils.h"
 
 bool GameCreate(struct Game **game)
 {
@@ -19,7 +18,8 @@ void GameRender(struct Game *game)
 {
     SDL_RenderClear(game->renderer);
 
-	GameRT(game->renderer, &game->bkg);	
+	GameRT(game->renderer, &game->bkg);
+	SDL_RenderTexture(game->renderer, game->text.texture, NULL, &game->text.rect);
 	for (int i = 0; i < BUTTON_COUNT; i++) {GameRT(game->renderer, &game->buttons[i]);}
     
 	SDL_RenderPresent(game->renderer);	
@@ -55,9 +55,16 @@ void GameEvent(struct Game *game)
     switch(game->mouse.pressedButton)
     {
 		case 1:
-		    if(IsColliding(game->mouse, game->button2)) {printf("This is left click on button 2\n");}
-			if(IsColliding(game->mouse, game->button1)) {printf("This is left click on button 1\n");}
-		    if(IsColliding(game->mouse, game->button3)) {printf("This is left click on button 3\n");}
+		    for (int i = 0; i < BUTTON_COUNT; i++)
+			{
+				if (IsColliding(game->mouse, game->buttons[i]))
+				{
+				    GameButtonApply(i, &game->text);
+				}
+			}
+		    //if(IsColliding(game->mouse, game->button2)) {printf("This is left click on button 2\n");}
+			//if(IsColliding(game->mouse, game->button1)) {printf("This is left click on button 1\n");}
+		    //if(IsColliding(game->mouse, game->button3)) {printf("This is left click on button 3\n");}
 	    break;			    
 		case 4:
 		    printf("This is right click\n");
@@ -81,6 +88,20 @@ void GameFlow(struct Game *game)
 void GameRT(SDL_Renderer *renderer, Entity *entity)
 {
     SDL_RenderTexture(renderer, entity->texture, NULL, &entity->rect);
+}
+
+void GameButtonApply(int buttonID, Text *text)
+{
+    if (buttonID >= 10)
+	{
+
+	}
+	else 
+	{
+		char bf;
+		bf = snprintf(bf, 1, "%d", buttonID);
+		text.string[0] = bf;
+	}
 }
 
 void GameCleanup(struct Game *game)

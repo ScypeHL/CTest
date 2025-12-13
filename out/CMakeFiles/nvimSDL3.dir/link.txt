@@ -1,1 +1,1 @@
-/usr/bin/cc -Wl,--dependency-file=CMakeFiles/nvimSDL3.dir/link.d CMakeFiles/nvimSDL3.dir/Source/main.c.o CMakeFiles/nvimSDL3.dir/Source/game.c.o CMakeFiles/nvimSDL3.dir/Source/init.c.o -o nvimSDL3  /usr/lib/libSDL3.so.0.2.28
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/nvimSDL3.dir/link.d CMakeFiles/nvimSDL3.dir/Source/main.c.o CMakeFiles/nvimSDL3.dir/Source/game.c.o CMakeFiles/nvimSDL3.dir/Source/init.c.o CMakeFiles/nvimSDL3.dir/Source/utils.c.o -o nvimSDL3  /usr/lib/libSDL3.so.0.2.28

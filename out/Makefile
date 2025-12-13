@@ -208,6 +208,30 @@ Source/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nvimSDL3.dir/build.make CMakeFiles/nvimSDL3.dir/Source/main.c.s
 .PHONY : Source/main.c.s
 
+Source/utils.o: Source/utils.c.o
+.PHONY : Source/utils.o
+
+# target to build an object file
+Source/utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nvimSDL3.dir/build.make CMakeFiles/nvimSDL3.dir/Source/utils.c.o
+.PHONY : Source/utils.c.o
+
+Source/utils.i: Source/utils.c.i
+.PHONY : Source/utils.i
+
+# target to preprocess a source file
+Source/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nvimSDL3.dir/build.make CMakeFiles/nvimSDL3.dir/Source/utils.c.i
+.PHONY : Source/utils.c.i
+
+Source/utils.s: Source/utils.c.s
+.PHONY : Source/utils.s
+
+# target to generate assembly for a file
+Source/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nvimSDL3.dir/build.make CMakeFiles/nvimSDL3.dir/Source/utils.c.s
+.PHONY : Source/utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -227,6 +251,9 @@ help:
 	@echo "... Source/main.o"
 	@echo "... Source/main.i"
 	@echo "... Source/main.s"
+	@echo "... Source/utils.o"
+	@echo "... Source/utils.i"
+	@echo "... Source/utils.s"
 .PHONY : help
 
 

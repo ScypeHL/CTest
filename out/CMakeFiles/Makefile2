@@ -85,12 +85,12 @@ clean: CMakeFiles/nvimSDL3.dir/clean
 CMakeFiles/nvimSDL3.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nvimSDL3.dir/build.make CMakeFiles/nvimSDL3.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nvimSDL3.dir/build.make CMakeFiles/nvimSDL3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles --progress-num=1,2,3,4 "Built target nvimSDL3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles --progress-num=1,2,3,4,5 "Built target nvimSDL3"
 .PHONY : CMakeFiles/nvimSDL3.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/nvimSDL3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/nvimSDL3.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles 0
 .PHONY : CMakeFiles/nvimSDL3.dir/rule
@@ -102,7 +102,7 @@ nvimSDL3: CMakeFiles/nvimSDL3.dir/rule
 # codegen rule for target.
 CMakeFiles/nvimSDL3.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nvimSDL3.dir/build.make CMakeFiles/nvimSDL3.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target nvimSDL3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/scy/Documents/Projects/CProjects/nvimSDL3/out/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target nvimSDL3"
 .PHONY : CMakeFiles/nvimSDL3.dir/codegen
 
 # clean rule for target.

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/scy/Documents/Projects/CProjects/nvimSDL3/Source/game.c" "CMakeFiles/nvimSDL3.dir/Source/game.c.o" "gcc" "CMakeFiles/nvimSDL3.dir/Source/game.c.o.d"
   "/home/scy/Documents/Projects/CProjects/nvimSDL3/Source/init.c" "CMakeFiles/nvimSDL3.dir/Source/init.c.o" "gcc" "CMakeFiles/nvimSDL3.dir/Source/init.c.o.d"
   "/home/scy/Documents/Projects/CProjects/nvimSDL3/Source/main.c" "CMakeFiles/nvimSDL3.dir/Source/main.c.o" "gcc" "CMakeFiles/nvimSDL3.dir/Source/main.c.o.d"
+  "/home/scy/Documents/Projects/CProjects/nvimSDL3/Source/utils.c" "CMakeFiles/nvimSDL3.dir/Source/utils.c.o" "gcc" "CMakeFiles/nvimSDL3.dir/Source/utils.c.o.d"
   "" "nvimSDL3" "gcc" "CMakeFiles/nvimSDL3.dir/link.d"
   )
 

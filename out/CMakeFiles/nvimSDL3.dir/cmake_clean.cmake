@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/nvimSDL3.dir/Source/init.c.o.d"
   "CMakeFiles/nvimSDL3.dir/Source/main.c.o"
   "CMakeFiles/nvimSDL3.dir/Source/main.c.o.d"
+  "CMakeFiles/nvimSDL3.dir/Source/utils.c.o"
+  "CMakeFiles/nvimSDL3.dir/Source/utils.c.o.d"
   "nvimSDL3"
   "nvimSDL3.pdb"
 )

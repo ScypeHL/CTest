@@ -217,6 +217,9 @@ PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 //The directory containing a CMake configuration file for SDL3.
 SDL3_DIR:PATH=/usr/lib/cmake/SDL3
 
+//The directory containing a CMake configuration file for SDL3_ttf.
+SDL3_ttf_DIR:PATH=/usr/lib/cmake/SDL3_ttf
+
 //Value Computed by CMake
 nvimSDL3_BINARY_DIR:STATIC=/home/scy/Documents/Projects/CProjects/nvimSDL3/out
 

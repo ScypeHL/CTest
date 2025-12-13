@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -17,7 +18,7 @@ typedef struct
 {
     int x;
 	int y;
-} Vector2;
+}Vector2;
 
 typedef struct
 {
@@ -25,6 +26,15 @@ typedef struct
 	float y;
 	int pressedButton;
 }Mouse;
+
+typedef struct
+{
+    TTF_Font *font;
+	SDL_Texture *texture;
+	SDL_FRect rect;
+	char* string[256];
+	int fontSize;
+}Text;
 
 typedef struct
 {
@@ -44,24 +54,9 @@ struct Game
 	SDL_Surface *surface;
 	
 	Entity bkg;
+	Text text;
 	Entity buttons[BUTTON_COUNT];
     Vector2 coor[BUTTON_COUNT];
-
-	Entity button1;
-	Entity button2;
-	Entity button3;
-    Entity button4;
-    Entity button5;
-    Entity button6;
-    Entity button7;
-    Entity button8;
-    Entity button9;
-    Entity button0;
-    Entity buttond;
-	Entity buttont;
-	Entity buttonp;
-	Entity buttonm;
-	Entity buttone;
 };
 
 bool GameCreate(struct Game **game);
